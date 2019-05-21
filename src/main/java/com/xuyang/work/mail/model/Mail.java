@@ -1,4 +1,4 @@
-package com.xuyang.work.email.mail.model;
+package com.xuyang.work.mail.model;
 
 /**
  * @Auther: cypc

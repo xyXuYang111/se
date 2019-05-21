@@ -1,6 +1,6 @@
-package com.xuyang.work.email.template;
+package com.xuyang.work.template;
 
-import com.xuyang.work.email.template.impl.TemplateFor1;
+import com.xuyang.work.template.impl.TemplateFor1;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

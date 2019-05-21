@@ -1,7 +1,7 @@
-package com.xuyang.work.email.mail.util;
+package com.xuyang.work.mail.util;
 
 import com.sun.mail.util.MailSSLSocketFactory;
-import com.xuyang.work.email.mail.model.Email;
+import com.xuyang.work.mail.model.Email;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
-package com.xuyang.work.email.mail.task;
+package com.xuyang.work.mail.task;
 
-import com.xuyang.work.email.mail.model.Email;
-import com.xuyang.work.email.mail.util.EmailQq;
+import com.xuyang.work.mail.model.Email;
+import com.xuyang.work.mail.util.EmailQq;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

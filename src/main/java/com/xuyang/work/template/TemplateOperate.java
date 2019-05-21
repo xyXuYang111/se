@@ -1,4 +1,6 @@
-package com.xuyang.work.email.template;
+package com.xuyang.work.template;
+
+import com.xuyang.work.template.model.TemplateModel;
 
 import java.util.Map;
 
@@ -15,14 +17,16 @@ public interface TemplateOperate {
      */
     public String templateUrl();
 
+    public String fileName();
+
     /**
      * 获取模板的参数
      * @return
      */
-    public Map<String, Object> templateMap();
+    public Map<String, Object> templateMap(TemplateModel templateModelInfo);
 
     /**
      * 生成模板
      */
-    public void createTemplate();
+    public void createTemplate(TemplateModel templateModel);
 }
