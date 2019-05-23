@@ -2,7 +2,6 @@ package com.xuyang.work.template.impl;
 
 import com.xuyang.work.template.AbstractObject;
 import com.xuyang.work.template.TemplateDef;
-import com.xuyang.work.template.model.TemplateModel;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
