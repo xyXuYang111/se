@@ -25,6 +25,12 @@ public class TemplateModel implements Serializable {
     @JsonProperty(value = "templateContext")
     private String templateContext;
 
+    @JsonProperty(value = "num")
+    private String templateNum;
+
+    @JsonProperty(value = "appellation")
+    private String templateAppellation;
+
     public String getTemplateType() {
         return templateType;
     }
@@ -39,5 +45,21 @@ public class TemplateModel implements Serializable {
 
     public void setTemplateContext(String templateContext) {
         this.templateContext = templateContext;
+    }
+
+    public String getTemplateNum() {
+        return templateNum;
+    }
+
+    public void setTemplateNum(String templateNum) {
+        this.templateNum = templateNum;
+    }
+
+    public String getTemplateAppellation() {
+        return templateAppellation;
+    }
+
+    public void setTemplateAppellation(String templateAppellation) {
+        this.templateAppellation = templateAppellation;
     }
 }

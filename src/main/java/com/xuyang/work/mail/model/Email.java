@@ -1,5 +1,6 @@
 package com.xuyang.work.mail.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,21 +17,32 @@ public class Email implements Serializable {
 
     private static final long serialVersionUID = -8991756927614538137L;
 
+    @JsonProperty("titleName")
     private String titleName;
 
+    @JsonProperty("message")
     private String message;
 
+    @JsonProperty("sendName")
     private String sendName;
 
+    @JsonProperty("sendNumber")
     private String sendNumber;
 
+    @JsonProperty("sendPassword")
     private String sendPassword;
 
+    @JsonProperty("receiveName")
     private String receiveName;
 
+    @JsonProperty("receiveNumber")
     private String receiveNumber;
 
+    @JsonProperty("receivePassword")
     private String receivePassword;
+
+    @JsonProperty("emailType")
+    private String emailType;
 
     public String getTitleName() {
         return titleName;
@@ -94,5 +106,13 @@ public class Email implements Serializable {
 
     public void setReceivePassword(String receivePassword) {
         this.receivePassword = receivePassword;
+    }
+
+    public String getEmailType() {
+        return emailType;
+    }
+
+    public void setEmailType(String emailType) {
+        this.emailType = emailType;
     }
 }

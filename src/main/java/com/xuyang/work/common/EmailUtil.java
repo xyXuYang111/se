@@ -1,27 +1,21 @@
-package com.xuyang.work.mail.util;
+package com.xuyang.work.common;
 
+import com.sun.mail.util.MailSSLSocketFactory;
 import com.xuyang.work.mail.model.Email;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.mail.Address;
+import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-/**
- * @Auther: 许洋
- * @Date: 2019/1/6 21:39
- * @Description: 网易邮箱
- */
-@Slf4j
-@Component
-public class EmailSend163 {
+public class EmailUtil {
 
-    public boolean sendMail(Email email) throws Exception {
-
+    public static boolean sendMail(Email email) throws Exception {
         // 定义Properties对象,设置环境信息
         Properties props = new Properties();
         //设置邮件服务器的地址
@@ -52,20 +46,35 @@ public class EmailSend163 {
         return true;
     }
 
-    public static void main(String[] args){
-        try {
-            Email email = new Email();
-            email.setSendNumber("15172399690@163.com");
-            email.setSendPassword("xy1234qwer");
-            email.setReceivePassword("xy1234qwer");
-            email.setReceiveNumber("15172399690@163.com");
-            email.setTitleName("网易邮箱集成测试");
-            email.setMessage("网易邮箱测试文本");
+    public static boolean sendEmailQq(Email email) throws Exception {
+        Properties props = new Properties();
+        // 开启debug调试
+        props.setProperty("mail.debug", "true");
+        // 发送服务器需要身份验证
+        props.setProperty("mail.smtp.auth", "true");
+        // 设置邮件服务器主机名
+        props.setProperty("mail.host", "smtp.qq.com");
+        // 发送邮件协议名称
+        props.setProperty("mail.transport.protocol", "smtp");
 
-            EmailSend163 emailSend163 = new EmailSend163();
-            emailSend163.sendMail(email);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        MailSSLSocketFactory sf = new MailSSLSocketFactory();
+        sf.setTrustAllHosts(true);
+        props.put("mail.smtp.ssl.enable", "true");
+        props.put("mail.smtp.ssl.socketFactory", sf);
+
+        Session session = Session.getInstance(props);
+
+        Message msg = new MimeMessage(session);
+        //标题
+        msg.setSubject(email.getTitleName());
+        msg.setText(email.getMessage());
+        msg.setFrom(new InternetAddress(email.getSendNumber()));
+
+        Transport transport = session.getTransport();
+        transport.connect("smtp.qq.com", email.getReceiveNumber(), email.getReceivePassword());
+
+        transport.sendMessage(msg, new Address[]{new InternetAddress(email.getSendNumber())});
+        transport.close();
+        return true;
     }
 }
