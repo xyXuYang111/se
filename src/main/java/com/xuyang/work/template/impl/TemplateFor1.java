@@ -40,7 +40,7 @@ public class TemplateFor1 extends AbstractObject {
     }
 
     @Override
-    public Map<String, Object> templateMap(TemplateModel templateModelInfo) {
+    public Map<String, Object> templateMap() {
         log.info("模板参数");
         Map<String, Object> objectMap = new HashMap<>();
         objectMap.put("userName", "许洋");
@@ -50,8 +50,8 @@ public class TemplateFor1 extends AbstractObject {
     }
 
     @Override
-    public void createTemplate(TemplateModel templateModel) {
+    public void createTemplate() {
         log.info("生成模板");
-        super.createTemplate(templateModel);
+        super.createTemplate();
     }
 }

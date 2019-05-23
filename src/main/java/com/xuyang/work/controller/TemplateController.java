@@ -21,7 +21,8 @@ public class TemplateController {
     @RequestMapping(value = "createController", method = RequestMethod.POST)
     public String createController(@RequestBody TemplateModel templateModel){
         AbstractObject abstractObject = templateFactory.abstractObject(templateModel.getTemplateType());
-        abstractObject.createTemplate(templateModel);
+        abstractObject.setTemplateModelInfo(templateModel);
+        abstractObject.createTemplate();
         return "模板文件生成成功";
     }
 }

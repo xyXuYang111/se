@@ -23,10 +23,10 @@ public interface TemplateOperate {
      * 获取模板的参数
      * @return
      */
-    public Map<String, Object> templateMap(TemplateModel templateModelInfo);
+    public Map<String, Object> templateMap();
 
     /**
      * 生成模板
      */
-    public void createTemplate(TemplateModel templateModel);
+    public void createTemplate();
 }
