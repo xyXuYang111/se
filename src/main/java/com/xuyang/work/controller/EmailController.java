@@ -2,7 +2,6 @@ package com.xuyang.work.controller;
 
 import com.xuyang.work.mail.AbstractObject;
 import com.xuyang.work.mail.EmailFactory;
-import com.xuyang.work.mail.impl.EmailFor2;
 import com.xuyang.work.mail.model.Email;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

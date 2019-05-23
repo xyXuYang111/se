@@ -2,7 +2,6 @@ package com.xuyang.work.mail;
 
 import com.xuyang.work.mail.impl.EmailFor1;
 import com.xuyang.work.mail.impl.EmailFor2;
-import com.xuyang.work.template.TemplateDef;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

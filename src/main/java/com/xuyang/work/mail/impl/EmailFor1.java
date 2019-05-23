@@ -2,7 +2,6 @@ package com.xuyang.work.mail.impl;
 
 import com.xuyang.work.mail.AbstractObject;
 import com.xuyang.work.mail.EmailDef;
-import com.xuyang.work.mail.model.Email;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
