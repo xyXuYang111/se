@@ -3,17 +3,22 @@ package com.xuyang.work.message;
 import com.xuyang.work.common.EmailUtil;
 import com.xuyang.work.message.model.Message;
 
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
 import java.util.Map;
+import java.util.Properties;
 
 public abstract class AbstractObject implements MessageOperate {
 
     protected Message email;
 
-    protected String userName;
+    protected MimeMessage message;
 
     protected String password;
 
-    protected String emailMay;
+    protected Properties properties;
+
+    protected MimeBodyPart mimeBodyPart;
 
     protected Map<String, Object> emailMap;
 
@@ -22,62 +27,37 @@ public abstract class AbstractObject implements MessageOperate {
     }
 
     @Override
-    public String userName() {
-        return userName;
+    public MimeMessage sendUserName()  throws Exception{
+        return message;
     }
 
     @Override
-    public String password() {
+    public String password() throws Exception {
         return password;
     }
 
     @Override
-    public String emailMay() {
-        return emailMay;
+    public Properties emailMay() throws Exception {
+        return properties;
     }
 
     @Override
-    public Map<String, Object> emailMap() {
+    public Map<String, Object> emailMap() throws Exception {
         return emailMap;
     }
 
     @Override
-    public void sendEmail() {
-        String userName = userName();
-        String password = password();
-        String emailMay = emailMay();
-        //qq的邮件方式
-        if(emailMay.equals(MessageDef.EMAIL_QQ)){
-            email.setReceiveNumber(MessageDef.USER_NAME_QQ);
-            email.setReceivePassword(MessageDef.USER_PASSWORD_QQ);
-            email.setSendNumber(userName);
-            try {
-                EmailUtil.sendEmailQq(email);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else if(emailMay.equals(MessageDef.EMAIL_163)){
-            email.setReceiveNumber(MessageDef.USER_NAME_163);
-            email.setReceivePassword(MessageDef.USER_PASSWORD_163);
-            email.setSendNumber(userName);
-            email.setSendPassword(password);
-            try {
-                EmailUtil.sendMail(email);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else{
-            //另外一种方式发送邮件
-        }
-    }
-
-    @Override
-    public void sendEmailPhoto() {
+    public void sendEmail() throws Exception {
 
     }
 
     @Override
-    public void sendEmailFile() {
+    public MimeBodyPart sendEmailPhoto()  throws Exception{
+        return mimeBodyPart;
+    }
+
+    @Override
+    public void sendEmailFile()  throws Exception{
 
     }
 }

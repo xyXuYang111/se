@@ -22,9 +22,14 @@ public class EmailController {
     @RequestMapping(value = "sendEmail", method = RequestMethod.POST)
     public String sendEmail(@RequestBody Message email){
         log.info("发送邮件");
-        AbstractObject abstractObject = messageFactory.abstractObject(email.getEmailType());
-        abstractObject.setEmail(email);
-        abstractObject.sendEmail();
-        return "邮件发送成功";
+        try {
+            AbstractObject abstractObject = messageFactory.abstractObject(email.getEmailType());
+            abstractObject.setEmail(email);
+            abstractObject.sendEmail();
+            return "邮件发送成功";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return e.getMessage();
+        }
     }
 }
