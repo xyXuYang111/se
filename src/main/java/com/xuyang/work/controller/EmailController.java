@@ -1,8 +1,8 @@
 package com.xuyang.work.controller;
 
-import com.xuyang.work.mail.AbstractObject;
-import com.xuyang.work.mail.EmailFactory;
-import com.xuyang.work.mail.model.Email;
+import com.xuyang.work.message.AbstractObject;
+import com.xuyang.work.message.MessageFactory;
+import com.xuyang.work.message.model.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class EmailController {
 
     @Autowired
-    private EmailFactory emailFactory;
+    private MessageFactory messageFactory;
 
     @ResponseBody
     @RequestMapping(value = "sendEmail", method = RequestMethod.POST)
-    public String sendEmail(@RequestBody Email email){
+    public String sendEmail(@RequestBody Message email){
         log.info("发送邮件");
-        AbstractObject abstractObject = emailFactory.abstractObject(email.getEmailType());
+        AbstractObject abstractObject = messageFactory.abstractObject(email.getEmailType());
         abstractObject.setEmail(email);
         abstractObject.sendEmail();
         return "邮件发送成功";

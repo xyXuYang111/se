@@ -1,13 +1,13 @@
-package com.xuyang.work.mail;
+package com.xuyang.work.message;
 
 import com.xuyang.work.common.EmailUtil;
-import com.xuyang.work.mail.model.Email;
+import com.xuyang.work.message.model.Message;
 
 import java.util.Map;
 
-public abstract class AbstractObject implements EmailOperate{
+public abstract class AbstractObject implements MessageOperate {
 
-    protected Email email;
+    protected Message email;
 
     protected String userName;
 
@@ -17,7 +17,7 @@ public abstract class AbstractObject implements EmailOperate{
 
     protected Map<String, Object> emailMap;
 
-    public void setEmail(Email email) {
+    public void setEmail(Message email) {
         this.email = email;
     }
 
@@ -47,18 +47,18 @@ public abstract class AbstractObject implements EmailOperate{
         String password = password();
         String emailMay = emailMay();
         //qq的邮件方式
-        if(emailMay.equals(EmailDef.EMAIL_QQ)){
-            email.setReceiveNumber(EmailDef.USER_NAME_QQ);
-            email.setReceivePassword(EmailDef.USER_PASSWORD_QQ);
+        if(emailMay.equals(MessageDef.EMAIL_QQ)){
+            email.setReceiveNumber(MessageDef.USER_NAME_QQ);
+            email.setReceivePassword(MessageDef.USER_PASSWORD_QQ);
             email.setSendNumber(userName);
             try {
                 EmailUtil.sendEmailQq(email);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if(emailMay.equals(EmailDef.EMAIL_163)){
-            email.setReceiveNumber(EmailDef.USER_NAME_163);
-            email.setReceivePassword(EmailDef.USER_PASSWORD_163);
+        }else if(emailMay.equals(MessageDef.EMAIL_163)){
+            email.setReceiveNumber(MessageDef.USER_NAME_163);
+            email.setReceivePassword(MessageDef.USER_PASSWORD_163);
             email.setSendNumber(userName);
             email.setSendPassword(password);
             try {
@@ -69,5 +69,15 @@ public abstract class AbstractObject implements EmailOperate{
         }else{
             //另外一种方式发送邮件
         }
+    }
+
+    @Override
+    public void sendEmailPhoto() {
+
+    }
+
+    @Override
+    public void sendEmailFile() {
+
     }
 }

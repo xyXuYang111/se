@@ -1,8 +1,8 @@
-package com.xuyang.work.mail;
+package com.xuyang.work.message;
 
 import java.util.Map;
 
-public interface EmailOperate {
+public interface MessageOperate {
 
     /**
      * 发送人
@@ -29,7 +29,17 @@ public interface EmailOperate {
     public Map<String, Object> emailMap();
 
     /**
-     * 发送短信
+     * 发送短信：文本
      */
     public void sendEmail();
+
+    /**
+     * 发送邮件：图片
+     */
+    public void sendEmailPhoto();
+
+    /**
+     * 发送邮件：文件
+     */
+    public void sendEmailFile();
 }

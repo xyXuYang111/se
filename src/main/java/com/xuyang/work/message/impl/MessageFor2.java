@@ -1,13 +1,13 @@
-package com.xuyang.work.mail.impl;
+package com.xuyang.work.message.impl;
 
-import com.xuyang.work.mail.AbstractObject;
-import com.xuyang.work.mail.EmailDef;
+import com.xuyang.work.message.AbstractObject;
+import com.xuyang.work.message.MessageDef;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Component
-public class EmailFor2 extends AbstractObject {
+public class MessageFor2 extends AbstractObject {
 
     @Override
     public String userName() {
@@ -16,7 +16,7 @@ public class EmailFor2 extends AbstractObject {
 
     @Override
     public String emailMay() {
-        return EmailDef.EMAIL_QQ;
+        return MessageDef.EMAIL_QQ;
     }
 
     @Override

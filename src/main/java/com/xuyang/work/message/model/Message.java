@@ -1,4 +1,4 @@
-package com.xuyang.work.mail.model;
+package com.xuyang.work.message.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Data
 @Slf4j
-public class Email implements Serializable {
+public class Message implements Serializable {
 
     private static final long serialVersionUID = -8991756927614538137L;
 
