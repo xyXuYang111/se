@@ -19,8 +19,8 @@
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="url" value="${url}"/>
         <property name="driverClassName" value="${driver-class}"/>
-        <property name="username" value="${userName}"/>
-        <property name="password" value="${password}"/>
+        <property name="username" value="root"/>
+        <property name="password" value="1234qwer"/>
     </bean>
 
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
@@ -34,7 +34,7 @@
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-        <property name="basePackage" value="com.xuyang.ssm.dao" />
+        <property name="basePackage" value="com.xuyang.work.logger.dao" />
         <property name="annotationClass" value="com.xuyang.work.annotation.MyBatisDao"/>
     </bean>
 

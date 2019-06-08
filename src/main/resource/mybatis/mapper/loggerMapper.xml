@@ -2,5 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xuyang.work.logger.dao.LoggerDao">
 
+    <resultMap id="loggerResult" type="Logger">
+        <id property="logId" column="LOG_ID"/>
+        <result property="logName" column="LOG_NAME"/>
+        <result property="logTime" column="LOG_TIME"/>
+    </resultMap>
 
+    <select id="loggerList" resultMap="loggerResult" parameterType="logger">
+        SELECT * FROM LOG
+        <trim prefix="WHERE" prefixOverrides="and">
+            <if test="logId != null">
+                AND LOG_ID = #{logger.logId}
+            </if>
+            <if test="logName != null">
+                AND LOG_NAME = #{logger.logName}
+            </if>
+            <if test="logTime != null">
+                AND LOG_TIME = #{logger.logTime}
+            </if>
+        </trim>
+    </select>
+
+    <insert id="insertLogger" parameterType="logger">
+        INSERT LOG(LOG_NAME, LOG_TIME)
+        VALUES(#{logger.logName}, now())
+    </insert>
+
+    <update id="updateLogger" parameterType="logger">
+        UPDATE LOG SET LOG_NAME = #{logger.logName}
+        WHERE LOG_ID = #{logger.logId}
+    </update>
 </mapper>
