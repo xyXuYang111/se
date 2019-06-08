@@ -10,8 +10,6 @@
        http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="com.xuyang.work.email.mail.task"/>
-
     <!-- 注解方式配置spring task -->
     <task:annotation-driven/>
 
