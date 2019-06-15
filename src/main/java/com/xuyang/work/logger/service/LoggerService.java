@@ -11,7 +11,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-@Transactional
+@Transactional(transactionManager = "transactionManager")
 public class LoggerService {
 
     @Autowired
