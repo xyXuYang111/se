@@ -26,9 +26,9 @@ public class RedisSessionAspect {
     //@Pointcut("execution(* com.bie.aop.UserDao.*())")  指定所有的方法
     //@Pointcut("execution(* com.bie.aop.UserDao.save())") 指定save方法
 
-    @Pointcut("execution(* com.xuyang.work.controller.SessionController.redisSessionController(..))")
+    @Pointcut("execution(* com.xuyang.work.controller.SessionController.*(..))")
     public void pointCut(){
-        log.info("切点方法：我用作日志记录");
+        log.info("切点方法：刷新redis缓存");
     }
 
     /**

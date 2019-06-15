@@ -43,6 +43,11 @@ public class CookieFilter implements Filter {
                 builder.append(cookie.getName() + "=" + value + ";");
                 builder.append("Secure;");//Cookie设置Secure标识
                 builder.append("HttpOnly;");//Cookie设置HttpOnly
+
+                cookie.setHttpOnly(true);
+                cookie.setSecure(true);
+                //修改cookie
+                resp.addCookie(cookie);
                 resp.addHeader("Set-Cookie", builder.toString());
             }
         }
