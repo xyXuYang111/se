@@ -26,10 +26,19 @@ public class RedisMessageListener implements MessageListener {
         byte[] body = message.getBody();
         //信息内容
         String msgBody = (String) redisTemplate.getValueSerializer().deserialize(body);
-        System.out.println(msgBody);
+        log.debug("信息内容:" + msgBody);
         //节点
         byte[] channel = message.getChannel();
         String msgChannel = (String) redisTemplate.getValueSerializer().deserialize(channel);
-        System.out.println(msgChannel);
+        log.debug("信息内容:" + msgChannel);
+    }
+
+    /**
+     * 发送消息
+     * @param message
+     */
+    public void sendMessage(String message){
+        log.debug("消息内容");
+        redisTemplate.convertAndSend("chat", message);
     }
 }
