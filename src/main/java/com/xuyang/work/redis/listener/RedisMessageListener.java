@@ -1,11 +1,13 @@
-package com.xuyang.work.redis;
+package com.xuyang.work.redis.listener;
 
+import com.xuyang.work.redis.model.RedisMessage;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,18 +21,18 @@ import org.springframework.stereotype.Component;
 public class RedisMessageListener implements MessageListener {
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     @Override
     public void onMessage(Message message, byte[] bytes) {
         byte[] body = message.getBody();
         //信息内容
-        String msgBody = (String) redisTemplate.getValueSerializer().deserialize(body);
+        String msgBody = (String) stringRedisTemplate.getValueSerializer().deserialize(body);
         log.debug("信息内容:" + msgBody);
-        //节点
+        //节点]]\
         byte[] channel = message.getChannel();
-        String msgChannel = (String) redisTemplate.getValueSerializer().deserialize(channel);
-        log.debug("信息内容:" + msgChannel);
+        String msgChannel = (String) stringRedisTemplate.getValueSerializer().deserialize(channel);
+        log.debug("信息消息码:" + msgChannel);
     }
 
     /**
@@ -39,6 +41,6 @@ public class RedisMessageListener implements MessageListener {
      */
     public void sendMessage(String message){
         log.debug("消息内容");
-        redisTemplate.convertAndSend("chat", message);
+        stringRedisTemplate.convertAndSend("chat", message);
     }
 }

@@ -55,7 +55,7 @@ public class LoggerServiceTest {
 
     @Test
     public void insertLogger() {
-        for(int i=1; i<1000000000; i++) {
+        for(int i=1; i<10; i++) {
             Logger logger = new Logger();
             logger.setLogName("日志名：" + i);
             try {

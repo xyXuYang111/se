@@ -1,7 +1,7 @@
 package com.xuyang.work.controller;
 
 import com.xuyang.work.logger.model.Logger;
-import com.xuyang.work.redis.RedisMessageListener;
+import com.xuyang.work.redis.listener.RedisMessageListener;
 import com.xuyang.work.redis.RedisService;
 import com.xuyang.work.redis.redisRepository.RedisRepository;
 import lombok.extern.slf4j.Slf4j;
