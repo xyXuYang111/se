@@ -15,7 +15,7 @@
 
   <properties>
     <freemarker.version>2.3.28</freemarker.version>
-    <quarzt.version>2.3.0</quarzt.version>
+    <quarzt.version>2.3.2</quarzt.version>
     <slf4j.version>1.7.25</slf4j.version>
     <log4j-version>2.9.1</log4j-version>
     <spring.version>5.1.5.RELEASE</spring.version>
