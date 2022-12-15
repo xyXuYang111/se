@@ -18,7 +18,7 @@
     <quarzt.version>2.3.0</quarzt.version>
     <slf4j.version>1.7.25</slf4j.version>
     <log4j-version>2.9.1</log4j-version>
-    <spring.version>5.1.5.RELEASE</spring.version>
+    <spring.version>5.2.20.RELEASE</spring.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
